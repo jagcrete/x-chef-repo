@@ -26,7 +26,7 @@ ids.each do |item|
     # a comment about the user
     comment     id['comment'] || username
     # an array of ssh keys
-    ssh_keys    id['ssh_key']
+    ssh_keys    id['ssh_keys']
     # we don't want to generate a priv/pub key for this user
     ssh_keygen  false
     # if we have a shadow password, set it
