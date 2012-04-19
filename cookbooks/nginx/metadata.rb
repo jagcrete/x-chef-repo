@@ -5,13 +5,13 @@ description       "Installs and configures nginx"
 version           "0.100.2"
 
 recipe "nginx", "Installs nginx package and sets up configuration with Debian apache style with sites-enabled/sites-available"
-recipe "nginx::source", "Installs nginx from source and sets up configuration with Debian apache style with sites-enabled/sites-available"
+#recipe "nginx::source", "Installs nginx from source and sets up configuration with Debian apache style with sites-enabled/sites-available"
 
 %w{ ubuntu debian centos redhat fedora }.each do |os|
   supports os
 end
 
-%w{ build-essential runit bluepill }.each do |cb|
+%w{ bluepill }.each do |cb|
   depends cb
 end
 
