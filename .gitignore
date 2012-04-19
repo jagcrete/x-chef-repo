@@ -1,2 +1,3 @@
 .chef/
 *.secret
+data_bags/users/
