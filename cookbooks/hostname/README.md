@@ -7,7 +7,6 @@ Requirements
 
 Attributes
 ==========
-* `node['muppet']` - the name used to set the hostname
 * `node['hosts']['localhost_alias']` - adds an alias in the /etc/hosts file for each item in this array
 
 Usage

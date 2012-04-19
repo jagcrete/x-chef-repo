@@ -17,7 +17,6 @@
   "platforms": {
   },
   "maintainer_email": "YOUR_EMAIL",
-  "long_description": "Description\n===========\nSets the hostname for a node and update the /etc/hosts file to include an entry using the fqdn and hostname and the ipaddress of the node.\n\nRequirements\n============\n\nAttributes\n==========\n* `node['muppet']` - the name used to set the hostname\n* `node['hosts']['localhost_alias']` - adds an alias in the /etc/hosts file for each item in this array\n\nUsage\n=====\nUse the default recipe.\n\n",
   "replacing": {
   },
   "conflicting": {
