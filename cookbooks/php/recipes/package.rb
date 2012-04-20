@@ -34,8 +34,16 @@ pkgs.each do |pkg|
   end
 end
 
+# check which template to use
+if node[:php].nil? or node[:php][:ini].nil?
+  template_type = ""
+else
+  # use the loop template
+  template_type = ".loop"
+end
+
 template "#{node['php']['conf_dir']}/php.ini" do
-  source "php.ini.erb"
+  source "php.ini#{template_type}.erb"
   owner "root"
   group "root"
   mode "0644"
