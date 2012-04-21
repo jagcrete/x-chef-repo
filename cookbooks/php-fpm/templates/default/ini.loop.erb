@@ -1,0 +1,10 @@
+<% ini = node[:php][:ini] %>
+
+<% ini.each do |section,properties| %>
+
+<%= "\n[#{section}]" %>
+<% properties.each do |property, value| %>
+  <%= "#{property} = \"#{value}\"" %>
+<% end %>
+
+<% end %>
