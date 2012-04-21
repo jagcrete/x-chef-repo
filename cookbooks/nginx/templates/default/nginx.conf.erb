@@ -15,6 +15,12 @@ http {
   include       <%= node[:nginx][:dir] %>/mime.types;
   default_type  application/octet-stream;
 
+  # hide version info
+  server_tokens <%= node[:nginx][:server_tokens] %>;
+
+  client_max_body_size <%= node[:nginx][:client_max_body_size] %>;
+  client_body_buffer_size <%= node[:nginx][:client_body_buffer_size] %>;
+
   <% unless node[:nginx][:disable_access_log] -%>
   access_log	<%= node[:nginx][:log_dir] %>/access.log;
   <% end %>
