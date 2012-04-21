@@ -65,15 +65,12 @@ default_attributes "php" => {
                         "Date" => {
                           "date.timezone" => "(\"Amercia/New York\")"
                         },
-                        "Pdo_mysql" => {
-                          "pdo_mysql.cache_size" => "2000"
-                        },
                         "Syslog" => {
                           "define_syslog_variables" => "Off"
                         },
                         "mail function" => {
                           "SMTP" => "localhost",
-                          "smtp_port" => 25
+                          "smtp_port" => "25",
                           "sendmail_path" => "/usr/sbin/sendmail -t -i",
                           "mail.add_x_header" => "On"
                         },
@@ -100,7 +97,7 @@ default_attributes "php" => {
                           "mysqli.default_user" => "",
                           "mysqli.default_pw" => "",
                           "mysqli.reconnect" => "Off"
-                        }
+                        },
                         "Session" => {
                           "session.save_handler" => "files",
                           "session.save_path" => "/var/lib/php/session",
@@ -127,7 +124,7 @@ default_attributes "php" => {
                           "session.hash_function" => "0", 
                           "session.hash_bits_per_character" => "5",
                           "url_rewriter.tags" => "a=href,area=href,frame=src,input=src,form=fakeentry"
-                        }
+                        },
                         "Tidy" => {
                           "tidy.clean_output" => "Off"
                         },
