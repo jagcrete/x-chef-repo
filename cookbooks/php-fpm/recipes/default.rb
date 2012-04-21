@@ -10,10 +10,10 @@ end
 
 fpm = node[:php_fpm]
 
-unless fpm.nil? or fpm.empty?
+unless fpm.nil? or fpm.empty? do
   
   # write out php.ini file
-  template "/etc/php5/fpm/php.ini"
+  template "/etc/php5/fpm/php.ini" do
     source "ini.loop.erb"
     variables( :ini => fpm[:ini] )
     owner "root"
@@ -22,7 +22,7 @@ unless fpm.nil? or fpm.empty?
   end unless fpm[:ini].nil? or fpm[:ini].empty?
 
   # write out main.conf for php-fpm
-  template "/etc/php5/fpm/main.conf"
+  template "/etc/php5/fpm/main.conf" do
     source "ini.loop.erb"
     variables( :ini => fpm[:main_conf] )
     owner "root"
@@ -33,7 +33,7 @@ unless fpm.nil? or fpm.empty?
   # write out pool conf files
   fpm[:pools].each do |name|
     properties = fpm[:pools][name]
-    template "/etc/php5/fpm/pool.d/#{name}.conf"
+    template "/etc/php5/fpm/pool.d/#{name}.conf" do
       source "ini.loop.erb"
       variables( :ini => properties )
       owner "root"
