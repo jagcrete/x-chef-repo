@@ -5,4 +5,5 @@ run_list [
   "recipe[nginx]",
   "recipe[php]",
   "recipe[php-fpm]",
+  "recipe[git]",
 ]
