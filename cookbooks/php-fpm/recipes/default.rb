@@ -10,8 +10,7 @@ end
 
 fpm = node[:php_fpm]
 
-unless fpm.nil? or fpm.empty? do
-  
+unless fpm.nil? or fpm.empty?
   # write out php.ini file
   template "/etc/php5/fpm/php.ini" do
     source "ini.loop.erb"
