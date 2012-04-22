@@ -43,3 +43,14 @@ ids.each do |item|
   end unless id['groups'].nil?
 
 end unless ids.nil?
+
+# create our apps home directory
+directory "/var/apps/jagcrete" do
+  owner "jarrad"
+  group "www-data"
+  # rwx by owner and group
+  mode "0770"
+  action :create
+  # mkdir -p
+  recursive true
+end
