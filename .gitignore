@@ -1,3 +1,5 @@
 .chef/
 *.secret
 data_bags/users/
+cookbooks/nlcweb/
+cookbooks/nlcdb/
