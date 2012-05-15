@@ -4,7 +4,7 @@
 <% node[:percona][:conf].keys.each do |category| %>
   <%= "[#{category}]" %>
   <% node[:percona][:conf][category].keys.each do |key| %>
-    <%= "#{key} = #{node[:percona][:conf][category][key]}" %>
+    <%= "#{key}=#{node[:percona][:conf][category][key]}" %>
   <% end %>
 <% end %>
 
