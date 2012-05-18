@@ -56,5 +56,11 @@ override_attributes :percona => {
                           :slow_query_log_file    => '/var/lib/mysql/data/mysql-slow.log'
                         },
                       },
-                      :keyserver => 'pgp.mit.edu' 
-                    }
+                      :keyserver => 'pgp.mit.edu',
+                    },
+                    :deploy => {
+                      :deploy_to => '/tmp/dbdata',
+                      :repo => 'git@dbdata:dbdata.git',
+                      :revision => 'dbdata',
+                   } 
+                 }
