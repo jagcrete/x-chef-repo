@@ -1,19 +1,23 @@
+@socket = "/var/run/mysqld/mysqld.sock"
+
 name "nlc-percona"
-description "persona server configuration for nlc"
+description "percona server configuration for nlc"
 run_list [
-  "recipe[percona::server]",
+  "recipe[mysql]", "recipe[mysql::server]"
 ]
-override_attributes :percona => { 
+override_attributes :mysql => { :package_name => 'percona-server-server', :client_package_name => 'percona-server-client' },
+                    
+                    :percona => { 
                       :conf => {
                         :mysql => {
                           :port                   => 3306,
-                          :socket                 => '/var/lib/mysql/data/mysql.sock'
+                          :socket                 => @socket
                         },
                         :mysqld => {
                           # GENERAL
                           :user                   => 'mysql',
                           :default_storage_engine => 'InnoDB',
-                          :socket                 => '/var/lib/mysql/data/mysql.sock',
+                          :socket                 => @socket,
                           :pid_file               => '/var/lib/mysql/data/mysql.pid',
                           # MyISAM
                           :key_buffer_size        => '32M',
@@ -55,12 +59,6 @@ override_attributes :percona => {
                           :slow_query_log         => 1,
                           :slow_query_log_file    => '/var/lib/mysql/data/mysql-slow.log'
                         },
-                      },
+                      }, # conf
                       :keyserver => 'pgp.mit.edu',
-                    },
-                    :deploy => {
-                      :deploy_to => '/tmp/dbdata',
-                      :repo => 'git@dbdata:dbdata.git',
-                      :revision => 'dbdata',
-                   } 
-                 }
+                     }

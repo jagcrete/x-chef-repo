@@ -17,4 +17,19 @@
 # limitations under the License.
 #
 
+case node['platform']
+when "ubuntu"
+  apt_repository "percona" do
+    uri "http://repo.percona.com/apt"
+    distribution node['lsb']['codename']
+    components ['main']
+    action :add
+    keyserver "keys.gnupg.net"
+    key "1C4CBDCDCD2EFD2A"
+    action :add
+    notifies :run, "execute[apt-get update]", :immediately
+  end
+end
+
+
 include_recipe "mysql::client"

@@ -28,7 +28,7 @@ when "ubuntu","debian"
   if debian_before_squeeze? || ubuntu_before_lucid?
     %w{mysql-client libmysqlclient15-dev}
   else
-    %w{mysql-client libmysqlclient-dev}
+    [ node[:mysql][:client_package_name], "libmysqlclient-dev" ]
   end
 when "freebsd"
   %w{mysql55-client}
